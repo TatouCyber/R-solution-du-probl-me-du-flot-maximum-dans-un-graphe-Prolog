@@ -96,5 +96,5 @@ print_solution(Value, Table) :-
     writeln("Origine\tDestination\tCapacite\tFlot"),
     forall(
         member(flow(X,Y,C,F), Table),
-        format("~w\t~w\t~w\t~w~n", [X,Y,C,F])
+        format("~w\t \t ~w\t \t~w\t \t~w~n", [X,Y,C,F])
     ).
