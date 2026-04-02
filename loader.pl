@@ -196,3 +196,13 @@ read_all_terms(Stream, [Term|Rest]) :-
     \+ at_end_of_stream(Stream),
     read(Stream, Term),
     read_all_terms(Stream, Rest).
+
+declared_node(X) :- node(X).
+declared_node(X) :- source(X).
+declared_node(X) :- sink(X).
+
+graph_data(Edges, Nodes, Source, Sink) :-
+    findall(edge(X,Y,C), edge(X,Y,C), Edges),
+    findall(X, declared_node(X), Nodes),
+    once(source(Source)),
+    once(sink(Sink)).
