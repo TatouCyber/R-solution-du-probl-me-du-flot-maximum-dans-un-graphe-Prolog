@@ -12,13 +12,6 @@ Construit le tableau de solution final à partir :
 - du graphe initial, qui contient les capacités d'origine ;
 - du graphe résiduel final, obtenu après l'algorithme de Ford-Fulkerson.
 
-Pour chaque arête edge(X,Y,Cap) du graphe initial, on calcule le flot
-effectivement envoyé de X vers Y par la formule :
-
-    Flow = Cap - ResidualCap
-
-où ResidualCap est la capacité résiduelle finale de l'arête X -> Y.
-
 Paramètres :
 +GraphInitial : liste des arêtes du graphe initial
 +Residual : graphe résiduel final
@@ -56,10 +49,6 @@ flow_value(+Source, +Table, -Value)
 
 Calcule la valeur du flot maximal à partir du tableau de solution.
 
-La valeur du flot est obtenue ici comme la somme des flots sortant de la
-source. Cela est cohérent avec la définition du problème de flot maximum
-dans le cadre du projet.
-
 Paramètres :
 +Source : sommet source du réseau
 +Table : tableau de solution produit par solution_table/3
@@ -81,11 +70,6 @@ flow_value(Source, Table, Value) :-
 print_solution(+Value, +Table)
 
 Affiche la solution finale sous une forme textuelle et structurée.
-
-L’affichage comprend :
-- la valeur du flot maximal ;
-- un tableau listant, pour chaque arête utile :
-  l’origine, la destination, la capacité et le flot affecté.
 
 Paramètres :
 +Value : valeur du flot maximal
